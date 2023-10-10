@@ -7,9 +7,21 @@
 </head>
 <body>
     <ul>
-        <?php foreach ($task as $key => $feature) : ?>
-            <li><strong><?= $key, ': ', $feature; ?></strong></li>
-        <?php endforeach ?>
+        <li>
+            <strong>Name: </strong> <?= $task['title']; ?>
+        </li>
+
+        <li>
+            <strong>Date: </strong> <?= $task['due']; ?>
+        </li>
+
+        <li>
+            <strong>Person Responsible: </strong> <?= $task['assigned_to']; ?>
+        </li>
+
+        <li>
+            <strong>Status: </strong> <?= $task['completed'] ? '&#9989' : 'Incomplete'; ?>
+        </li>
     </ul>
 </body>
 </html>
