@@ -93,16 +93,16 @@ li {
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="myDropdown">
-            <a href="../week1/index.php">Assignment 1</a>
-            <a href="../week2/index.php">Assignment 2</a>
-            <a href="../week3/index.php">Assignment 3</a>
-            <a href="../week4/index.php">Assignment 4</a>
-            <a href="../week5/index.php">Assignment 5</a>
-            <a href="../week6/index.php">Assignment 6</a>
-            <a href="../week7/index.php">Assignment 7</a>
-            <a href="../week8/index.php">Assignment 8</a>
-            <a href="../week9/index.php">Assignment 9</a>
-            <a href="../week10/index.php">Assignment 10</a> 
+            <a href="../Week 1/index.php">Assignment 1</a>
+            <a href="../Week 2/index.php">Assignment 2</a>
+            <a href="../Week 3/index.php">Assignment 3</a>
+            <a href="../Week 4/index.php">Assignment 4</a>
+            <a href="../Week 5/index.php">Assignment 5</a>
+            <a href="../Week 6/index.php">Assignment 6</a>
+            <a href="../Week 7/index.php">Assignment 7</a>
+            <a href="../Week 8/index.php">Assignment 8</a>
+            <a href="../Week 9/index.php">Assignment 9</a>
+            <a href="../Week 10/index.php">Assignment 10</a> 
         </div>
     </div> 
     <a href="../site/heroku_resources.php">Heroku Resources</a>
