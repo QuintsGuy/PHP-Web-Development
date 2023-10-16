@@ -9,7 +9,7 @@
     <h1>FizzBuzz Finder</h1>
 
     <!--Create fizzBuzz function; Check whether numbs is divisible by 2 or 3; Print the corresponding statements-->
-    <?php function fizzBuzz ($numbs){=
+    <?php function fizzBuzz ($numbs) {
         if ($numbs % 2 == 0 && $numbs % 3 ==0) {
             echo $numbs . "FizzBuzz"."\n";
         }
