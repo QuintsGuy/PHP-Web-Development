@@ -5,10 +5,8 @@ class CheckingAccount extends Account {
 
     public function withdraw($amount){
         if ($this->balance - $amount >= self::OVERDRAW_LIMIT) {
-            $this->balance -+ $amount;
-            return true;
+            return $this->balance -+ $amount;
         }
-        return false;
     }
 
     public function getAccountDetails() {

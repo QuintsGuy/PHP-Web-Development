@@ -1,0 +1,38 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 30px;
+}
+
+.account {
+    border: 5px solid black;
+    background-color: rgb(219, 219, 219);
+    padding: 30px;
+    margin: 10px;
+}
+
+ul {
+    padding-inline: 20px;
+    margin-top: 0px;
+}
+
+h2 {
+    margin: 0px 0px 15px 0px;
+}
+
+.button {
+    margin-top: 5px;
+    width: 80px;
+}
+
+.button:hover {
+    cursor: pointer;
+}

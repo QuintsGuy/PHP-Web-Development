@@ -10,7 +10,7 @@
         }
 
         public function deposit($amount) {
-            $this->balance += $amount;
+            return $this->balance += $amount;
         }
 
         abstract public function withdraw($amount);
@@ -30,9 +30,9 @@
         protected function getAccountDetails() {
             $accountDetails = "<li><strong>Account ID: </strong> $this->accountId</li>";
             $accountDetails .= "<li><strong>Balance: </strong> $this->balance</li>";
-            $accountDetails .= "<li><strong>Account Opened: </strong> $this->startDate</li>"";
+            $accountDetails .= "<li><strong>Account Opened: </strong> $this->startDate</li>";
         
-            return $accountDetails
+            return $accountDetails;
         }
     }
 ?>
