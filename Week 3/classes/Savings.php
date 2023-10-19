@@ -4,7 +4,7 @@ class SavingsAccount extends Account {
     
     public function withdraw($amount){
         if ($this->balance - $amount >= 0) {
-            return $this->balance -+ $amount;
+            return $this->balance -= $amount;
         }
     }
 
