@@ -25,7 +25,7 @@
                 <input type="hidden" name="checkingBalance" value="<?= $checking->getBalance(); ?>"/>
                 <input type="hidden" name="checkingDate" value="<?= $checking->getStartDate(); ?>"/>
 
-                <div class="transactionps">
+                <div class="transactions">
                     <input type="text" name="checkingWithdrawAmount" value="">
                     <input class="button" type="submit" name="btnCheckingWithdraw" value="Withdraw">
                 </div>
