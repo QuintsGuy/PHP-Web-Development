@@ -48,7 +48,7 @@
                     <li><?= "Division: $division"; ?></li>
                 </ul>
                 
-                <a href="view_teams.php">View All NFL Teams</a>
+                <a href="view_teams.php">View all NFL Teams</a>
                 
                 <h2>Add New NFL Team</h2>
             <?php endif; ?>
