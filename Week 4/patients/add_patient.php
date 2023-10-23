@@ -1,5 +1,7 @@
 <?php
 
+    include __DIR__ . '/../../include/header.php';
+
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
@@ -11,7 +13,7 @@
     $birthDate = "";
     $married = "";
 
-    if(isset($_POST['submitTeam'])) {
+    if(isset($_POST['submitPatient'])) {
         $firstName = filter_input(INPUT_POST, 'first_name');
         $lastName = filter_input(INPUT_POST, 'last_name');
         $birthDate = filter_input(INPUT_POST, 'birth_date');
@@ -24,8 +26,7 @@
     }
 
     if(isset($_POST['submitPatient']) && $error == "") {
-        var_dump($firstName);
-        //addPatient($firstName, $lastName, $birthDate, $married);
+        addPatient($firstName, $lastName, $birthDate, $married);
     }
 
 ?>
@@ -47,10 +48,10 @@
                 <h2>Patient was added</h2>
 
                 <ul>
-                    <li><?= "First Name: $firstName" ?></li>
-                    <li><?= "Last Name: $lastName" ?></li>
-                    <li><?= "Birth Date: $birthDate" ?></li>
-                    <li><?= "Married: $married" ?></li>
+                    <li>First Name: <?= $firstName; ?></li>
+                    <li>Last Name: <?= $lastName; ?></li>
+                    <li>Birth Date: <?= $birthDate; ?></li>
+                    <li>Married: <?= $married==0?"No":"Yes"; ?></li>
                 </ul>
 
                 <a href="view_patients.php">View all Patients</a>
@@ -74,8 +75,8 @@
                     </div>
                     <div>
                         <label for="is_married" class="label">Married: </label>
-                        <input type="radio" name="is_married" value="yes" <?= $married=="yes"?"checked":""?>> Yes
-                        <input type="radio" name="is_married" value="no" <?= $married=="no"?"checked":""?>> No
+                        <input type="radio" name="is_married" value=1 <?= $married=="yes"?"checked":""?>> Yes
+                        <input type="radio" name="is_married" value=0 <?= $married=="no"?"checked":""?>> No
                     </div>
 
                     <br />

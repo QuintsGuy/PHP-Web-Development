@@ -11,6 +11,7 @@
 <body>
     
     <?php
+        include __DIR__ . '/../../include/header.php';
         include __DIR__ . '/model/model_patients.php';
         $patients = getPatients();
     ?>
