@@ -46,5 +46,7 @@
         </div>
     </div>
 
+    <?php include __DIR__ . '/../../include/footer.php'; ?>
+
 </body>
 </html>

@@ -37,6 +37,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="styles.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <title>Add Patient | Tristan Knott</title>
@@ -44,8 +46,33 @@
 <body>
     <div class="container">
         <div class="col-sm-12">
+            <h2>Add new Patient</h2>
+            <form name="newPatient" action="add_patient.php" method="POST">
+                <div class="wrapper">
+                    <div class="item">
+                        <label for="first_name" class="label">First Name: </label>
+                        <input type="text" name="first_name" value="<?= $firstName; ?>">
+                    </div>
+                    <div class="item">
+                        <label for="last_name" class="label">Last Name: </label>
+                        <input type="text" name="last_name" value="<?= $lastName; ?>">
+                    </div>
+                    <div class="item">
+                        <label for="birth_date" class="label">Birth Date: </label>
+                        <input type="date" name="birth_date" placeholder="YYYY-MM-DD" value="<?= $birthDate ?>">
+                    </div>
+                    <div class="item">
+                        <label for="is_married" class="label">Married: </label>
+                        <input type="radio" name="is_married" value=1 <?= $married=="yes"?"checked":""?>> Yes
+                        <input id="radio" type="radio" name="is_married" value=0 <?= $married=="no"?"checked":""?>> No
+                    </div>
+
+                    <input class="button" type="submit" name="submitPatient" value="Save Patient Information">
+                </div>
+            </form>
+
             <?php if(isset($_POST['submitPatient']) && $error == ""): ?>
-                <h2>Patient was added</h2>
+                <h3>Patient was added</h2>
 
                 <ul>
                     <li>First Name: <?= $firstName; ?></li>
@@ -54,37 +81,12 @@
                     <li>Married: <?= $married==0?"No":"Yes"; ?></li>
                 </ul>
 
-                <a href="view_patients.php">View all Patients</a>
-
-                <h2>Add new Patient</h2>
+                <a class="link" href="view_patients.php">View all Patients</a>
             <?php endif; ?>
-
-            <form name="newPatient" action="add_patient.php" method="POST">
-                <div class="wrapper">
-                    <div>
-                        <label for="first_name" class="label">First Name: </label>
-                        <input type="text" name="first_name" value="<?= $firstName; ?>">
-                    </div>
-                    <div>
-                        <label for="last_name" class="label">Last Name: </label>
-                        <input type="text" name="last_name" value="<?= $lastName; ?>">
-                    </div>
-                    <div>
-                        <label for="birth_date" class="label">Birth Date: </label>
-                        <input type="date" name="birth_date" placeholder="YYYY-MM-DD" value="<?= $birthDate ?>">
-                    </div>
-                    <div>
-                        <label for="is_married" class="label">Married: </label>
-                        <input type="radio" name="is_married" value=1 <?= $married=="yes"?"checked":""?>> Yes
-                        <input type="radio" name="is_married" value=0 <?= $married=="no"?"checked":""?>> No
-                    </div>
-
-                    <br />
-
-                    <input type="submit" name="submitPatient" value="Save Patient Information">
-                </div>
-            </form>
         </div>
     </div>
+
+    <?php include __DIR__ . '/../../include/footer.php'; ?>
+
 </body>
 </html>
