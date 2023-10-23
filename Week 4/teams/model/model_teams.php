@@ -23,7 +23,7 @@ function getTeams(){
     return ($results);
 }
 
-function addTeams($teamName, $division) {
+function addTeam($teamName, $division) {
     //grab $dbo
     global $db;
 
