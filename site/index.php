@@ -14,7 +14,8 @@
     <li><a href="../Week 1/index.php">Week 1 - Video Lab Assignments</a></li>
     <li><a href="../Week 2/index.php">Week 2 - Patient</a></li>
     <li><a href="../Week 3/index.php">Week 3 - ATM</a></li>
-    <li><a href="../Week 4/index.php">Week 4 - Patients</a></li>
+    <li><a href="../Week 4/teams/view_teams.php">Week 4 - NFL Teams</a></li>
+    <li><a href="../Week 4/patients/view_patients.php">Week 4 - Patients</a></li>
     <li><a href="../Week 5/index.php">Week 5 - Patient CRUD</a></li>
     <li><a href="../Week 6/index.php">Week 6 - Patient Metrics</a></li>
     <li><a href="../Week 6/index.php">Week 6 - Schools</a></li>
