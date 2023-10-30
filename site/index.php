@@ -16,7 +16,7 @@
     <li><a href="../Week 3/index.php">Week 3 - ATM</a></li>
     <li><a href="../Week 4/teams/view_teams.php">Week 4 - NFL Teams</a></li>
     <li><a href="../Week 4/patients/view_patients.php">Week 4 - Patients</a></li>
-    <li><a href="../Week 5/index.php">Week 5 - Patient CRUD</a></li>
+    <li><a href="../Week 5/patients/view_patients.php">Week 5 - Patient Full CRUD</a></li>
     <li><a href="../Week 6/index.php">Week 6 - Patient Metrics</a></li>
     <li><a href="../Week 6/index.php">Week 6 - Schools</a></li>
     <li><a href="../Week 8/index.php">Week 8 - Disney Votes</a></li>
