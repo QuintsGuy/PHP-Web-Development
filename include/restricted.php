@@ -11,7 +11,7 @@ if(isset($_POST['loginButton'])){
     if(count($user)>0){
         session_start();
         $_SESSION['user'] = $userName;
-        header('Location: /se266/PHP-Web-Development/site/index.php');
+        header('Location: ../PHP-Web-Development/site/index.php');
     } else {
         session_unset();
     }
