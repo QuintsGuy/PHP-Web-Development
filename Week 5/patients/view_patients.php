@@ -15,7 +15,7 @@
         include __DIR__ . '/../../include/functions.php';
 
         if(!isset($_SESSION['user'])){
-            header('Location: /se266/PHP-Web-Development/include/restricted.php');
+            header('Location: /../../include/restricted.php');
         }
 
         if(isset($_POST['deletePatient'])){
