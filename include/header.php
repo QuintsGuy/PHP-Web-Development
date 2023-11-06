@@ -44,17 +44,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../PHP-Web-Development/site/index.php">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/~taknott/PHP-Web-Development/site/index.php">Home<span class="sr-only">(current)</span></a>
                 </li>
                 
             <?php if(isset($_SESSION['user'])): ?>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="assignmentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Assignments</a>
                         <div class="dropdown-menu" aria-labelledby="assignmentsDropdown">
-                            <a class="dropdown-item" href="../PHP-Web-Development/Week%201/fizzbuzz.php">FizzBuzz</a>
-                            <a class="dropdown-item" href="../PHP-Web-Development/Week%204/patients/view_patients.php">Patient View & Add</a>
-                            <a class="dropdown-item" href="../PHP-Web-Development/Week%205/patients/view_patients.php">Patient Edit & Delete</a>
-                            <a class="dropdown-item" href="../PHP-Web-Development/Week%206/patients/view_patients.php">Patient Search & Login</a>
+                            <a class="dropdown-item" href="/~taknott/PHP-Web-Development/Week%201/fizzbuzz.php">FizzBuzz</a>
+                            <a class="dropdown-item" href="/~taknott/PHP-Web-Development/Week%204/patients/view_patients.php">Patient View & Add</a>
+                            <a class="dropdown-item" href="/~taknott/PHP-Web-Development/Week%205/patients/view_patients.php">Patient Edit & Delete</a>
+                            <a class="dropdown-item" href="/~taknott/PHP-Web-Development/Week%206/patients/view_patients.php">Patient Search & Login</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Other</a>
                         </div>
