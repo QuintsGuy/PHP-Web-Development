@@ -14,7 +14,7 @@
         include __DIR__ . '/../../include/header.php';
 
         if(!isset($_SESSION['user'])){
-            header('Location: /../..include/restricted.php');
+            header('Location: ../..include/restricted.php');
         }
         
         $patients = getPatients();
