@@ -61,6 +61,10 @@
                     </li>
                 </ul>
                 
+                <div class="nav-item text-secondary my-2 my-lg-0">
+                    <a class="nav-link">Welcome <?= $_SESSION['user']; ?> </a>
+                </div>
+
                 <div class="nav-item my-2 my-lg-0">
                     <form method="POST">
                         <button name="logoutButton" type="submit" class="btn btn-dark">Logout</button>
