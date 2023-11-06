@@ -2,10 +2,9 @@
 
     include __DIR__ . '/../../include/header.php';
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    include __DIR__ . '/model/model_patients.php';
+    if(!isset($_SESSION['user'])){
+        header('Location: /se266/PHP-Web-Development/include/restricted.php');
+    }
 
     $error = "";
     $firstName = "";

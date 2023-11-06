@@ -1,3 +1,13 @@
+<?php 
+
+include __DIR__ . '../../include/header.php';
+
+if(!isset($_SESSION['user'])){
+    header('Location: /se266/PHP-Web-Development/include/restricted.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,3 +44,9 @@
 
 </body>
 </html>
+
+<?php 
+
+include __DIR__ . '/../include/footer.php';
+
+?>

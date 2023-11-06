@@ -12,8 +12,11 @@
     
     <?php
         include __DIR__ . '/../../include/header.php';
-        include __DIR__ . '/model/model_patients.php';
         include __DIR__ . '/../../include/functions.php';
+
+        if(!isset($_SESSION['user'])){
+            header('Location: /se266/PHP-Web-Development/include/restricted.php');
+        }
 
         if(isset($_POST['deletePatient'])){
             $id = filter_input(INPUT_POST, 'patientId');

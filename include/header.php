@@ -1,128 +1,104 @@
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>SE 266 - PHP, MySQL, and More!</title>
-</head>
-<style>
+<?php
 
-p.a {
+    session_start();
+
+    include __DIR__ . '/../Week 6/patients/model/model_patients.php';
     
-}
-
-
-body {
-    font-family: "Times New Roman", Times, serif;
-    font-size: "16px;";
-    margin-left: 20px;
-    margin-right: 10px;
-}
-.navbar {
-    overflow: hidden;
-    background-color: #333;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.navbar a {
-    float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.dropdown {
-    float: left;
-    overflow: hidden;
-}
-
-.dropdown .dropbtn {
-    cursor: pointer;
-    font-size: 16px;  
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-}
-
-.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
-    background-color: red;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.show {
-    display: block;
-}
-
-li {
-    font-family: "Times New Roman", Times, serif;
-    font-size: "16px;";
-}
-</style>
-</head>
-<body>
-
-<div class="navbar">
-    <div class="dropdown">
-        <button class="dropbtn" onclick="dropDown()">Assignments
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content" id="myDropdown">
-            <a href="../Week 1/index.php">Assignment 1</a>
-            <a href="../Week 2/index.php">Assignment 2</a>
-            <a href="../Week 3/index.php">Assignment 3</a>
-            <a href="../Week 4/index.php">Assignment 4</a>
-            <a href="../Week 5/index.php">Assignment 5</a>
-            <a href="../Week 6/index.php">Assignment 6</a>
-            <a href="../Week 7/index.php">Assignment 7</a>
-            <a href="../Week 8/index.php">Assignment 8</a>
-            <a href="../Week 9/index.php">Assignment 9</a>
-            <a href="../Week 10/index.php">Assignment 10</a> 
-        </div>
-    </div> 
-    <a href="../site/heroku_resources.php">Heroku Resources</a>
-    <a href="../site/php_resources.php">PHP Resources</a>
-    <a href="../site/git_resources.php">Git Resources</a>
-    <a href="https://github.com/QuintsGuy/PHP-Web-Development">My GitHub Repo</a>
-</div>
-
-<script>
-
-    function dropDown() {
-        document.getElementById("myDropdown").classList.toggle("show");
+    if(isset($_POST['logoutButton'])){
+        unset($_SESSION['user']);
     }
 
-    window.onclick = function(e) {
-        if (!e.target.matches('.dropbtn')) {
-            var myDropdown = document.getElementById("myDropdown");
-            if (myDropdown.classList.contains('show')) {
-                myDropdown.classList.remove('show');
-            }
+    if(isset($_POST['loginButton'])){
+        $userName = filter_input(INPUT_POST, 'loginUsername');
+        $passWord = filter_input(INPUT_POST, 'loginPassword');
+
+        $user = login($userName, $passWord);
+
+        if(count($user)>0){
+            $_SESSION['user'] = $userName;
+
+        } else {
+            session_unset();
         }
     }
-</script>
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 mb-3">
+        <a class="navbar-brand" href="#">PHP Web Development</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/se266/PHP-Web-Development/site/index.php">Home<span class="sr-only">(current)</span></a>
+                </li>
+                
+            <?php if(isset($_SESSION['user'])): ?>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="assignmentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Assignments</a>
+                        <div class="dropdown-menu" aria-labelledby="assignmentsDropdown">
+                            <a class="dropdown-item" href="/se266/PHP-Web-Development/Week%201/fizzbuzz.php">FizzBuzz</a>
+                            <a class="dropdown-item" href="/se266/PHP-Web-Development/Week%204/patients/view_patients.php">Patient View & Add</a>
+                            <a class="dropdown-item" href="/se266/PHP-Web-Development/Week%205/patients/view_patients.php">Patient Edit & Delete</a>
+                            <a class="dropdown-item" href="/se266/PHP-Web-Development/Week%206/patients/view_patients.php">Patient Search & Login</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Other</a>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="nav-item my-2 my-lg-0">
+                    <form method="POST">
+                        <button name="logoutButton" type="submit" class="btn btn-dark">Logout</button>
+                    </form>
+                </div>
+                
+            <?php else: ?>
+                </ul>
+                <div class="nav-item dropdown text-light my-2 my-lg-0">
+                    <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+                    <div class="dropdown-menu" style="margin-left: -15rem; width: 18rem;" aria-labelledby="loginDropdown">
+                        <form method="POST" class="px-4 py-3">
+                            <div class="form-group">
+                                <label for="usernameDropdown">Username</label>
+                                <input name="loginUsername" type="text" class="form-control" id="usernameDropdown" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordDropdown">Password</label>
+                                <input name="loginPassword" type="password" class="form-control" id="passwordDropdown" placeholder="Password">
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                <label class="form-check-label" for="dropdownCheck">Remember me</label>
+                            </div>
+                            <button name="loginButton" type="submit" class="btn btn-primary">Sign in</button>
+                        </form>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">New around here? Sign up</a>
+                        <a class="dropdown-item" href="#">Forgot password?</a>
+                    </div>
+                </div>
+            <?php endif; ?>
+            
+        </div>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

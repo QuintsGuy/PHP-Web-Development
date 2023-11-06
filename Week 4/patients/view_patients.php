@@ -12,7 +12,11 @@
     
     <?php
         include __DIR__ . '/../../include/header.php';
-        include __DIR__ . '/model/model_patients.php';
+
+        if(!isset($_SESSION['user'])){
+            header('Location: /se266/PHP-Web-Development/include/restricted.php');
+        }
+        
         $patients = getPatients();
     ?>
 
