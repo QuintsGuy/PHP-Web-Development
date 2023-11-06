@@ -3,7 +3,7 @@
 include __DIR__ . '/../include/header.php';
 
 if(!isset($_SESSION['user'])){
-    header('Location: /PHP-Web-Development/include/restricted.php');
+    header('Location: /../PHP-Web-Development/include/restricted.php');
 }
 
 ?>
