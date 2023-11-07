@@ -134,7 +134,7 @@ function login($userName, $passWord) {
 
     $results = [];
 
-    $sqlString = $db->prepare("SELECT * FROM patientUsers WHERE userName = :user AND userPassword = sha1(:pass)");
+    $sqlString = $db->prepare("SELECT * FROM patientUsers WHERE patientUsername = :user AND patientPassword = sha1(:pass)");
     $sqlString->bindValue(':user', $userName);
     $sqlString->bindValue(':pass', $passWord);
 

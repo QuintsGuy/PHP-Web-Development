@@ -2,7 +2,7 @@
 
 include (__DIR__ . '/db.php');
 
-function getPatients(){
+function getUsers(){
     //grab $dbo - needs global scope since object is coming from outside the function
     global $db;
 
@@ -10,7 +10,7 @@ function getPatients(){
     $results = [];
 
     //prepare SQL statement
-    $sqlString = $db->prepare("SELECT id, patientFirstName, patientLastName, patientBirthDate, patientMarried FROM patients ORDER BY patientLastName");
+    $sqlString = $db->prepare("SELECT id, userFirstName, userLastName, userBirthDate, userMarried FROM users ORDER BY userLastName");
 
     //if SQL statement returns results, populate our results array
     if ($sqlString->execute() && $sqlString->rowCount() > 0) {
@@ -21,14 +21,14 @@ function getPatients(){
     return ($results);
 }
 
-function addPatient($firstName, $lastName, $birthDate, $married) {
+function addUser($firstName, $lastName, $birthDate, $married) {
     global $db;
 
     $birthDate = new DateTimeImmutable($birthDate);
 
     $results = "";
 
-    $sqlString = $db->prepare("INSERT INTO patients SET patientFirstName = :f, patientLastName =:l, patientBirthDate =:b, patientMarried =:m");
+    $sqlString = $db->prepare("INSERT INTO users SET userFirstName = :f, userLastName =:l, userBirthDate =:b, userMarried =:m");
 
     $binds = array(
         ":f" => $firstName,
@@ -44,14 +44,14 @@ function addPatient($firstName, $lastName, $birthDate, $married) {
     return ($results);
 }
 
-function updatePatient ($id, $firstName, $lastName, $birthDate, $married) {
+function updateUser ($id, $firstName, $lastName, $birthDate, $married) {
     global $db;
 
     $birthDate = new DateTimeImmutable($birthDate);
 
     $results = "";
 
-    $sqlString = $db->prepare("UPDATE patients SET patientFirstName = :f, patientLastName = :l, patientBirthDate = :b, patientMarried = :m WHERE id = :id ");
+    $sqlString = $db->prepare("UPDATE users SET userFirstName = :f, userLastName = :l, userBirthDate = :b, userMarried = :m WHERE id = :id ");
 
     $binds = array(
         ":f" => $firstName,
@@ -68,12 +68,12 @@ function updatePatient ($id, $firstName, $lastName, $birthDate, $married) {
     return ($results);
 }
 
-function deletePatient ($id) {
+function deleteUser ($id) {
     global $db;
 
     $results = "";
 
-    $sqlString = $db->prepare("DELETE FROM patients WHERE id = :id");
+    $sqlString = $db->prepare("DELETE FROM users WHERE id = :id");
 
     $sqlString->bindValue(":id", $id);
 
@@ -84,12 +84,12 @@ function deletePatient ($id) {
     return ($results);
 }
 
-function getPatient($id){
+function getUser($id){
     global $db;
 
     $results = [];
 
-    $sqlString = $db->prepare("SELECT * FROM patients WHERE id = :id");
+    $sqlString = $db->prepare("SELECT * FROM users WHERE id = :id");
     $sqlString->bindValue(':id', $id);
 
     if ($sqlString->execute() && $sqlString->rowCount() > 0) {
@@ -99,25 +99,25 @@ function getPatient($id){
     return ($results);
 }
 
-function searchPatients($firstName, $lastName, $married){
+function searchUsers($firstName, $lastName, $married){
     global $db;
     $binds = array();
     $results = array();
 
-    $sqlString = "SELECT * FROM patients WHERE 0=0";
+    $sqlString = "SELECT * FROM users WHERE 0=0";
 
     if ($firstName != "") {
-        $sqlString .= " AND patientFirstName LIKE :first";
+        $sqlString .= " AND userFirstName LIKE :first";
         $binds['first'] = '%'.$firstName.'%';
     }
 
     if ($lastName != "") {
-        $sqlString .= " AND patientLastName LIKE :last";
+        $sqlString .= " AND userLastName LIKE :last";
         $binds['last'] = '%'.$lastName.'%';
     }
 
     if ($married != "") {
-        $sqlString .= " AND patientMarried = :married";
+        $sqlString .= " AND userMarried = :married";
         $binds['married'] = $married;
     }
 
@@ -134,7 +134,7 @@ function login($userName, $passWord) {
 
     $results = [];
 
-    $sqlString = $db->prepare("SELECT * FROM patientUsers WHERE userName = :user AND userPassword = sha1(:pass)");
+    $sqlString = $db->prepare("SELECT * FROM userUsers WHERE userUsername = :user AND userPassword = sha1(:pass)");
     $sqlString->bindValue(':user', $userName);
     $sqlString->bindValue(':pass', $passWord);
 
