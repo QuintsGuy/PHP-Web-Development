@@ -8,6 +8,8 @@
         unset($_SESSION['user']);
     }
 
+    var_dump($_SERVER['PHP_SELF']);
+
     if(isset($_POST['loginButton'])){
         $userName = filter_input(INPUT_POST, 'loginUsername');
         $passWord = filter_input(INPUT_POST, 'loginPassword');
