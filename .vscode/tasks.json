@@ -11,7 +11,7 @@
         "command": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
       },
       "args": [
-        "http://localhost/se266/PHP-Web-Development/${relativeFile}"
+        "http://localhost/PHP-Web-Development/${relativeFile}"
       ],
       "presentation": {
         "echo": false,
