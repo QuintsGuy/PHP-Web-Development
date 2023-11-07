@@ -29,7 +29,7 @@ if(isset($_POST['loginButton'])){
 <body>
     <div style="text-align: center; margin-top: 10px;">
         <h1>Welcome to my PHP Web Development Site</h1>
-        <p>Please login above to view patient information.</p>
+        <p>Please login above to continue.</p>
     </div>
 </body>
 </html>
